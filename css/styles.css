@@ -22,6 +22,9 @@
   /* СЕТКА кол-во элементов */
   --items: 1;   /* СЕТКА кол-во элементов */
   --indent: 30px;  /* СЕТКА растояние в рх между элементами */
+
+
+  --anim-fast: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -143,7 +146,33 @@ img {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+
+   position: relative;
 }
+
+.nav-link-current::after{
+  content: "";
+  position: absolute;
+
+  left: 0;
+	bottom: 0;
+  width: 100%;
+  height: 4px;
+ 
+  /* background-image: url("../images/hover/hover-studia.jpg"); */
+
+  border-radius: 2px;
+  background: var(--bg-logo-color);
+
+  /* background-size: contain; */
+
+  
+    
+    
+  
+}
+
+
 
 .contacts {
   display: flex;
@@ -160,6 +189,7 @@ img {
 /* выделяем активную страницу */
 .nav-link-current {
   color: var(--text-logo-color);
+  transition: color var(--anim-fast);
 }
 
 .nav-link:hover,
@@ -174,6 +204,7 @@ img {
   line-height: calc(16 / 14);
   letter-spacing: 0.02em;
   color: var(--text-comment-color);
+  transition: color var(--anim-fast);
 }
 
 .contacts-link:hover,
@@ -183,12 +214,16 @@ img {
 .contacts-icon{
   fill: var(--text-comment-color);
   stroke: var(--text-comment-color);
+  transition: fill var(--anim-fast),
+  stroke var(--anim-fast);
 }
 
 .contacts-link{
   display: flex;
   gap: 10px;
   align-items: center;
+  transition: fill var(--anim-fast),
+  stroke var(--anim-fast);
   
 }
 .contacts-icon:hover,
@@ -242,6 +277,7 @@ img {
   letter-spacing: 0.03em;
   color: var(--secondary-text-color);
   font-style: normal;
+  transition: color var(--anim-fast);
 }
 .address-contact-link {
    
@@ -250,6 +286,7 @@ img {
   line-height: calc(24 / 14);
   letter-spacing: 0.03em;
   color: rgba(255, 255, 255, 0.6);
+  transition: color var(--anim-fast);
 }
 .address-link:hover,
 .address-link:focus,
@@ -346,6 +383,8 @@ gap: 70px;
   color: var(--secondary-text-color);
   border-style: none;
   cursor: pointer;
+
+  transition: background-color var(--anim-fast);
 }
 
 .cap-btn:hover,
@@ -448,6 +487,35 @@ gap: 70px;
   letter-spacing: 0.03em;
   color: var(--primary-text-color);
 }
+
+.work-list-item{
+  position: relative;
+}
+.work-slogan{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+
+  display: block;
+  padding-top: 27px;
+  padding-bottom: 27px;
+
+  
+  background: rgba(47, 48, 58, 0.8);
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+
+  color: var(--secondary-text-color);
+
+}
+
 /* секция Наша команда  */
 
 /* .command-list{
@@ -521,9 +589,14 @@ justify-content: center;
   height: 44px;
   background-color: var(--bg-body-color);
   border-radius: 50%;
+
+  transition: fill var(--anim-fast),
+  background-color var(--anim-fast);
 }
 .socials-icon{    /* иконка */
   fill: var(--bg-fill-color);
+
+  transition: fill var(--anim-fast);
 }
 .socials-icon:hover{
 fill: var(--bg-body-color);
@@ -576,6 +649,9 @@ fill: var(--bg-body-color);
   color: var(--primary-text-color);
   border-style: none;
   cursor: pointer;
+
+  transition: background-color var(--anim-fast), 
+  color var(--anim-fast), box-shadow var(--anim-fast);
 }
 .filter-btn:hover,
 .filter-btn:focus {
@@ -602,11 +678,46 @@ fill: var(--bg-body-color);
 .picture-img {     /*СЕТКА формула ширины элемента*/
   width: calc((100% - var(--indent) * (var(--items) - 1)) / var(--items));
 }
+
+
+.team-thumb {
+  position: relative;
+  overflow: hidden;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(33, 150, 243, 0.9);
+  width: 100%;
+  height: 100%;
+  padding: 63px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transform: translateY(100%);
+  transition: transform var(--anim-fast);
+
+  }
+  .team-item:hover .overlay {
+  transform: translateY(0);
+}
+
+  .overlay-desc{
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  font-size: 18px;
+  color: var(--secondary-text-color);
+  }
+
 /*----СЕТКА конец-----*/
 
 .picture-img {    /* li с фото h2 и p */
   background: var(--bg-body-color);  
   border: 1px solid #EEEEEE;
+
+  transition: box-shadow var(--anim-fast);
 
 }
 .picture-img:hover,
@@ -661,11 +772,16 @@ margin-bottom: 50px;
   height: 92px;
   border: 1px solid var(--bg-fill-color);
   border-radius: 4px;
+
+  transition: fill var(--anim-fast);
 }
 
 
 .client-icon{   /* иконка */
   fill: var(--bg-fill-color);
+
+  transition: border var(--anim-fast),
+  fill var(--anim-fast);
 }
 
 .client-link:hover .client-icon,
@@ -677,3 +793,64 @@ margin-bottom: 50px;
   border: 1px solid var(--bg-logo-color);
 }
 
+/*Modal window*/
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+
+  /* лінивий спосіб центрування */
+  /* display: flex;
+  align-items: center;
+  justify-content: center; */
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  /* transition: visibility 1000ms, opacity 1000ms; */
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal {
+  /* start     центрування абсолютно позиційованих елементів
+  */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* end */
+
+  width: 500px;
+  height: 400px;
+  background-color: var(--bg-body-color);
+
+  border-radius: 16px;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: 1px solid var(--bg-accent-color);
+  border-radius: 50%;
+
+  cursor: pointer;
+}

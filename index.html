@@ -69,7 +69,7 @@
         <div class="container">
           <h1 class="cap-title">Ефективні рішення для вашого бізнесу</h1>
 
-          <button class="cap-btn" type="button">Замовити послугу</button>
+          <button class="cap-btn" type="button" data-modal-open>Замовити послугу</button>
         </div>
       </section>
 
@@ -131,24 +131,29 @@
         <div class="container container-work">
           <h2 class="work-title">Чим ми займаємося</h2>
           <ul class="work-list list">
-            <li>
+            
+            <li class="work-list-item">
               <img
                 src="./images/img-1.jpg"
                 alt="працюємо з таблицями та графіками"
                 width="370"
-                height="294"
-              />
+                height="294"/>
+                <p class="work-slogan">Десктопні додатки</p>
             </li>
-            <li>
+            
+            <li class="work-list-item">
               <img
                 src="./images/img-2.jpg"
                 alt="синхронізуємо данні з телефоном"
                 width="370"
                 height="294"
               />
+              <p class="work-slogan">Мобільні додатки</p>
             </li>
-            <li>
+
+            <li class="work-list-item">
               <img src="./images/img-3.jpg" alt="розробляємо дзайн" width="370" height="294" />
+              <p class="work-slogan">Дизайнерські рішення</p>
             </li>
           </ul>
         </div>
@@ -598,5 +603,22 @@
 
       </div>
     </footer>
+
+
+    <!-- Modal window -->
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button class="modal-btn" type="button" data-modal-close>
+          <svg width="20" height="20">
+            <use href="./images/icons.svg#cross"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
+    
+
+
   </body>
 </html>
